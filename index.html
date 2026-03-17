@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sylvi Publishing Oy — A Gateway to Global Stories</title>
+<meta name="description" content="Sylvi Publishing Oy — dual-language literary classics, digital formats, and the esque-learning method. A Finnish publishing company making learning seamless and enjoyable.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #e8e4df;
+  background: #080808;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ── NAV ── */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(1.5rem, 4vw, 3rem);
+  transition: background 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+.nav.scrolled {
+  background: rgba(8, 8, 8, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-left svg {
+  width: 28px;
+  height: 28px;
+}
+
+.nav-brand {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #e8e4df;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #777;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #e8e4df;
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #080808;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+.hero-logo {
+  width: 120px;
+  height: 120px;
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 8vw;
+  letter-spacing: 0.3em;
+  color: #ffffff;
+  margin-top: 2rem;
+  text-indent: 0.3em;
+}
+
+.hero-subtitle {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: 2vw;
+  letter-spacing: 0.6em;
+  color: #e8e4df;
+  text-indent: 0.6em;
+  margin-top: 0.5rem;
+}
+
+.hero-tagline {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  color: #777;
+  margin-top: 3rem;
+}
+
+.hero .fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.hero .fade-in:nth-child(1) { animation-delay: 0.2s; }
+.hero .fade-in:nth-child(2) { animation-delay: 0.5s; }
+.hero .fade-in:nth-child(3) { animation-delay: 0.7s; }
+.hero .fade-in:nth-child(4) { animation-delay: 0.9s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── SECTIONS ── */
+section {
+  padding: clamp(80px, 12vw, 160px) clamp(1.5rem, 8vw, 6rem);
+}
+
+.section-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.section-divider {
+  width: 60px;
+  height: 1px;
+  background: #333;
+  margin: 0 auto 3rem;
+}
+
+/* ── ABOUT ── */
+.about {
+  background: #080808;
+}
+
+.about-divider {
+  width: 100%;
+  height: 1px;
+  background: #333;
+  margin-bottom: clamp(60px, 8vw, 100px);
+}
+
+.about-text {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  line-height: 1.7;
+  color: #e8e4df;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ── ESQUE-LEARNING ── */
+.method {
+  background: #0f0f0f;
+}
+
+.method-heading {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.method-heading .tm {
+  font-size: 0.5em;
+  color: #c9b99a;
+  vertical-align: super;
+}
+
+.method-desc {
+  max-width: 700px;
+  margin: 0 auto 4rem;
+  text-align: center;
+  color: #e8e4df;
+}
+
+.book-mockup {
+  max-width: 640px;
+  margin: 0 auto;
+  border: 1px solid #222;
+  border-radius: 4px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #0a0a0a;
+}
+
+.book-page {
+  padding: 2rem 2rem 1.5rem;
+}
+
+.book-page:first-child {
+  border-right: 1px solid #1a1a1a;
+}
+
+.book-page-title {
+  font-family: 'Playfair Display', serif;
+  font-variant: small-caps;
+  font-size: 0.95rem;
+  color: #999;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+}
+
+.text-line {
+  height: 3px;
+  background: #333;
+  margin-bottom: 10px;
+  border-radius: 1px;
+}
+
+.book-caption {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #555;
+  margin-top: 1.5rem;
+  font-style: italic;
+}
+
+/* ── SERVICES ── */
+.services {
+  background: #141414;
+}
+
+.services-heading {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.card {
+  border: 1px solid #222;
+  padding: 3rem;
+  background: #0c0c0c;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+  border-color: #444;
+  transform: translateY(-4px);
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1.5rem;
+}
+
+.card-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  color: #999;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* ── INVITATION ── */
+.invitation {
+  background: #080808;
+  text-align: center;
+  padding-top: 160px;
+  padding-bottom: 160px;
+}
+
+.invitation-quote-mark {
+  font-family: 'Playfair Display', serif;
+  font-size: 6rem;
+  line-height: 1;
+  color: #222;
+  margin-bottom: 1rem;
+}
+
+.invitation-text {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  line-height: 1.7;
+  color: #e8e4df;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ── FOOTER ── */
+.footer {
+  background: #080808;
+  border-top: 1px solid #1a1a1a;
+  padding: 3rem clamp(1.5rem, 4vw, 3rem) 1.5rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-left svg {
+  width: 28px;
+  height: 28px;
+}
+
+.footer-company {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #e8e4df;
+}
+
+.footer-right {
+  font-size: 0.8rem;
+  color: #666;
+  line-height: 1.8;
+  text-align: right;
+}
+
+.footer-right a {
+  transition: color 0.3s ease;
+}
+
+.footer-right a:hover {
+  color: #e8e4df;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.7rem;
+  color: #444;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #111;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 14vw;
+  }
+  .hero-subtitle {
+    font-size: 3.5vw;
+  }
+  .hero-logo {
+    width: 80px;
+    height: 80px;
+  }
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  .nav-links {
+    display: none;
+  }
+  .book-mockup {
+    grid-template-columns: 1fr;
+  }
+  .book-page:first-child {
+    border-right: none;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-right {
+    text-align: center;
+  }
+  .card {
+    padding: 2rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-left">
+    <svg viewBox="0 0 100 100" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(50,50) rotate(45)">
+        <rect x="-30" y="-30" width="30" height="60" fill="none" stroke="#e8e4df" stroke-width="1.5"/>
+        <rect x="0" y="-30" width="30" height="60" fill="#e8e4df"/>
+      </g>
+    </svg>
+    <span class="nav-brand">Sylvi Publishing</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#method">Method</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#join">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <svg class="hero-logo fade-in" viewBox="0 0 100 100" width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(50,50) rotate(45)">
+      <rect x="-30" y="-30" width="30" height="60" fill="none" stroke="#e8e4df" stroke-width="1.5"/>
+      <rect x="0" y="-30" width="30" height="60" fill="#e8e4df"/>
+    </g>
+  </svg>
+  <h1 class="hero-title fade-in">SYLVI</h1>
+  <p class="hero-subtitle fade-in">PUBLISHING</p>
+  <p class="hero-tagline fade-in">A Gateway to Global Stories</p>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-divider"></div>
+  <p class="section-label reveal-on-scroll">About</p>
+  <p class="about-text reveal-on-scroll">Founded with a stable foundation and a passion for innovation, Sylvi Publishing is poised to make a lasting global impact. Our mission is to make learning seamless and enjoyable while fostering creativity. We are committed to publishing quality works that touch hearts&mdash;be it through evocative fiction, insightful nonfiction, or innovative digital formats&mdash;while nurturing your skills to reaching out to any corner of the world, literally and verbally.</p>
+</section>
+
+<!-- ESQUE-LEARNING -->
+<section class="method" id="method">
+  <p class="section-label reveal-on-scroll">Our Method</p>
+  <h2 class="method-heading reveal-on-scroll">esque-learning<span class="tm">&trade;</span></h2>
+  <p class="method-desc reveal-on-scroll">Our esque-learning&trade; method makes learning foreign languages easier than ever by offering dual-language translated books, allowing stories to flow seamlessly between cultures and languages, fostering understanding and connection.</p>
+  <div class="book-mockup reveal-on-scroll">
+    <div class="book-page">
+      <div class="book-page-title">Das Schloss</div>
+      <div class="text-line" style="width:90%"></div>
+      <div class="text-line" style="width:78%"></div>
+      <div class="text-line" style="width:95%"></div>
+      <div class="text-line" style="width:65%"></div>
+      <div class="text-line" style="width:88%"></div>
+      <div class="text-line" style="width:72%"></div>
+      <div class="text-line" style="width:82%"></div>
+    </div>
+    <div class="book-page">
+      <div class="book-page-title">The Castle</div>
+      <div class="text-line" style="width:85%"></div>
+      <div class="text-line" style="width:92%"></div>
+      <div class="text-line" style="width:70%"></div>
+      <div class="text-line" style="width:88%"></div>
+      <div class="text-line" style="width:60%"></div>
+      <div class="text-line" style="width:95%"></div>
+      <div class="text-line" style="width:76%"></div>
+    </div>
+  </div>
+  <p class="book-caption reveal-on-scroll">Franz Kafka &mdash; dual-language edition</p>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <p class="section-label reveal-on-scroll">What We Do</p>
+  <div class="cards">
+    <div class="card reveal-on-scroll stagger-1">
+      <svg class="card-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <rect x="8" y="10" width="22" height="28" fill="none" stroke="#555" stroke-width="1.2" rx="1"/>
+        <rect x="18" y="10" width="22" height="28" fill="none" stroke="#777" stroke-width="1.2" rx="1"/>
+      </svg>
+      <h3 class="card-title">Dual-Language Classics</h3>
+      <p class="card-text">Republishing beloved literary classics from the public domain in bilingual editions, preserving the original voice while opening doors to new readers across languages.</p>
+    </div>
+    <div class="card reveal-on-scroll stagger-2">
+      <svg class="card-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="6" width="28" height="36" fill="none" stroke="#555" stroke-width="1.2" rx="3"/>
+        <line x1="16" y1="16" x2="32" y2="16" stroke="#777" stroke-width="1"/>
+        <line x1="16" y1="21" x2="30" y2="21" stroke="#555" stroke-width="1"/>
+        <line x1="16" y1="26" x2="32" y2="26" stroke="#777" stroke-width="1"/>
+        <line x1="16" y1="31" x2="27" y2="31" stroke="#555" stroke-width="1"/>
+      </svg>
+      <h3 class="card-title">Digital Formats</h3>
+      <p class="card-text">E-books and audiobooks crafted for modern readers, bringing timeless stories into contemporary formats without losing their essence.</p>
+    </div>
+    <div class="card reveal-on-scroll stagger-3">
+      <svg class="card-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="22" cy="24" r="14" fill="none" stroke="#555" stroke-width="1.2"/>
+        <circle cx="28" cy="24" r="14" fill="none" stroke="#777" stroke-width="1.2"/>
+      </svg>
+      <h3 class="card-title">Global Languages</h3>
+      <p class="card-text">Starting with major European languages &mdash; English, Spanish, Portuguese, French, and German &mdash; with plans to expand into new language regions worldwide.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INVITATION -->
+<section class="invitation" id="join">
+  <div class="reveal-on-scroll">
+    <div class="invitation-quote-mark">&ldquo;</div>
+    <p class="invitation-text">We warmly invite you, dear reader, to join us on this exciting journey. Sylvi Publishing Oy, a Finnish company, is here to celebrate creativity, unite diverse voices, and inspire a global community through the timeless art of storytelling. Welcome to a world where stories know no borders!</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <svg viewBox="0 0 100 100" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(50,50) rotate(45)">
+          <rect x="-30" y="-30" width="30" height="60" fill="none" stroke="#e8e4df" stroke-width="1.5"/>
+          <rect x="0" y="-30" width="30" height="60" fill="#e8e4df"/>
+        </g>
+      </svg>
+      <span class="footer-company">Sylvi Publishing Oy</span>
+    </div>
+    <div class="footer-right">
+      Y-tunnus: 3524994-9<br>
+      Niukkalantie 1389, 59720 Uukuniemi, Finland<br>
+      <a href="mailto:info@sylvipublishing.com">info@sylvipublishing.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2025 Sylvi Publishing Oy. All rights reserved.
+  </div>
+</footer>
+
+<script>
+// Nav scroll effect
+const nav = document.getElementById('nav');
+const hero = document.getElementById('hero');
+
+const navObserver = new IntersectionObserver(([entry]) => {
+  nav.classList.toggle('scrolled', !entry.isIntersecting);
+}, { threshold: 0.1 });
+
+navObserver.observe(hero);
+
+// Scroll reveal
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('revealed');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+  revealObserver.observe(el);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="goldBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5d485"/>
+      <stop offset="50%" style="stop-color:#e8c36a"/>
+      <stop offset="100%" style="stop-color:#d4a84b"/>
+    </linearGradient>
+    <linearGradient id="goldFace" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8c36a"/>
+      <stop offset="100%" style="stop-color:#c9a455"/>
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="96" fill="url(#goldBg)"/>
+  <polygon points="45,100 100,55 100,145" fill="url(#goldFace)" stroke="#1a1a1a" stroke-width="1"/>
+  <polygon points="100,55 155,100 100,145" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1"/>
+</svg>
