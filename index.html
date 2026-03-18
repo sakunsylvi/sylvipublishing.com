@@ -501,8 +501,14 @@ section {
 <nav class="nav" id="nav">
   <div class="nav-left">
     <svg viewBox="0 0 200 200" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
-      <polygon points="45,100 100,55 100,145" fill="#c9b99a"/>
-      <polygon points="100,55 155,100 100,145" fill="#e8e4df"/>
+      <defs>
+        <linearGradient id="navGoldFace" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#e8c36a"/>
+          <stop offset="100%" style="stop-color:#c9a455"/>
+        </linearGradient>
+      </defs>
+      <polygon points="45,100 100,55 100,145" fill="url(#navGoldFace)" stroke="#1a1a1a" stroke-width="1"/>
+      <polygon points="100,55 155,100 100,145" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1"/>
     </svg>
     <span class="nav-brand">Sylvi Publishing</span>
   </div>
@@ -517,8 +523,14 @@ section {
 <!-- HERO -->
 <section class="hero" id="hero">
   <svg class="hero-logo fade-in" viewBox="0 0 200 200" width="120" height="120" xmlns="http://www.w3.org/2000/svg">
-    <polygon points="45,100 100,55 100,145" fill="#c9b99a"/>
-    <polygon points="100,55 155,100 100,145" fill="#e8e4df"/>
+    <defs>
+      <linearGradient id="heroGoldFace" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#e8c36a"/>
+        <stop offset="100%" style="stop-color:#c9a455"/>
+      </linearGradient>
+    </defs>
+    <polygon points="45,100 100,55 100,145" fill="url(#heroGoldFace)" stroke="#1a1a1a" stroke-width="1"/>
+    <polygon points="100,55 155,100 100,145" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1"/>
   </svg>
   <h1 class="hero-title fade-in">SYLVI</h1>
   <p class="hero-subtitle fade-in">PUBLISHING</p>
@@ -609,15 +621,21 @@ section {
   <div class="footer-inner">
     <div class="footer-left">
       <svg viewBox="0 0 200 200" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="45,100 100,55 100,145" fill="#c9b99a"/>
-        <polygon points="100,55 155,100 100,145" fill="#e8e4df"/>
+        <defs>
+          <linearGradient id="footGoldFace" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#e8c36a"/>
+            <stop offset="100%" style="stop-color:#c9a455"/>
+          </linearGradient>
+        </defs>
+        <polygon points="45,100 100,55 100,145" fill="url(#footGoldFace)" stroke="#1a1a1a" stroke-width="1"/>
+        <polygon points="100,55 155,100 100,145" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1"/>
       </svg>
       <span class="footer-company">Sylvi Publishing Oy</span>
     </div>
     <div class="footer-right">
       Y-tunnus: 3524994-9<br>
       Niukkalantie 1389, 59720 Uukuniemi, Finland<br>
-      <a href="mailto:info@sylvipublishing.com">info@sylvipublishing.com</a>
+      <a href="#" class="email-link" data-u="info" data-d="sylvipublishing.com"></a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -648,6 +666,12 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal-on-scroll').forEach(el => {
   revealObserver.observe(el);
+});
+
+document.querySelectorAll('.email-link').forEach(el => {
+  const e = el.dataset.u + '@' + el.dataset.d;
+  el.textContent = e;
+  el.href = 'mailto:' + e;
 });
 </script>
 </body>
