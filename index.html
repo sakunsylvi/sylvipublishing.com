@@ -234,26 +234,14 @@ section {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) translateY(40px);
+  transform: translate(-50%, -50%) translateY(150px);
   width: 120%;
   max-width: 1200px;
   opacity: 0;
   pointer-events: none;
   z-index: 0;
-  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 2.5s cubic-bezier(0.16, 1, 0.3, 1);
   filter: brightness(0.7);
-  mix-blend-mode: normal;
-}
-
-.method-bg-image.fleeting {
-  opacity: 0.45;
-  transform: translate(-50%, -50%) translateY(-40px);
-}
-
-.method-bg-image.fleeting-out {
-  opacity: 0;
-  transform: translate(-50%, -50%) translateY(-100px);
-  transition: opacity 0.8s ease-out, transform 1.5s ease-out;
+  will-change: transform, opacity;
 }
 
 .method .section-label,
@@ -711,22 +699,36 @@ document.querySelectorAll('.email-link').forEach(el => {
   el.href = 'mailto:' + e;
 });
 
-// Fleeting background image for esque-learning section
+// Fleeting parallax background for esque-learning section
 const methodSection = document.getElementById('method');
 const methodBgImg = document.querySelector('.method-bg-image');
 if (methodSection && methodBgImg) {
-  const methodObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        methodBgImg.classList.remove('fleeting-out');
-        methodBgImg.classList.add('fleeting');
-      } else if (methodBgImg.classList.contains('fleeting')) {
-        methodBgImg.classList.remove('fleeting');
-        methodBgImg.classList.add('fleeting-out');
-      }
-    });
-  }, { threshold: 0.2 });
-  methodObserver.observe(methodSection);
+  let ticking = false;
+  const updateParallax = () => {
+    const rect = methodSection.getBoundingClientRect();
+    const vh = window.innerHeight;
+    // progress: 0 = section bottom edge at viewport bottom, 1 = section top edge at viewport top
+    const progress = (vh - rect.top) / (vh + rect.height);
+    const clamped = Math.max(0, Math.min(1, progress));
+    // opacity: fade in 0-15%, full 15-85%, fade out 85-100%
+    let opacity = 0;
+    if (clamped < 0.15) opacity = clamped / 0.15;
+    else if (clamped > 0.85) opacity = (1 - clamped) / 0.15;
+    else opacity = 1;
+    opacity *= 0.45;
+    // image travels from +300px to -400px (700px range) while content scrolls normally
+    const yOffset = 300 - (clamped * 700);
+    methodBgImg.style.opacity = opacity;
+    methodBgImg.style.transform = `translate(-50%, -50%) translateY(${yOffset}px)`;
+    ticking = false;
+  };
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }, { passive: true });
+  updateParallax();
 }
 </script>
 </body>
