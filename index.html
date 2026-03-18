@@ -516,20 +516,12 @@ section {
   .card {
     padding: 2rem;
   }
-  .bookstore-grid {
-    grid-template-columns: 1fr;
-  }
-  .book-card {
-    padding: 1.5rem;
-  }
-  .book-card-cover img {
-    max-width: 140px;
-  }
 }
 
 /* ── BOOKSTORE ── */
 .bookstore {
   background: #141414;
+  overflow: hidden;
 }
 
 .bookstore-heading {
@@ -582,9 +574,55 @@ section {
   margin: 0 auto;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .bookstore-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .amazon-dropdown {
+    min-width: 160px;
+    right: 0;
+    left: auto;
+  }
+
+  .book-card {
+    padding: 1.5rem;
+  }
+
+  .book-card-cover img {
+    max-width: 160px;
+  }
+
+  .edition-tab {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .book-card {
+    padding: 1rem;
+  }
+  .book-card-cover img {
+    max-width: 120px;
+  }
+  .book-card-title {
+    font-size: 0.95rem;
+  }
+  .amazon-btn {
+    font-size: 0.65rem;
+    padding: 0.35rem 0.6rem;
+  }
+  .amazon-dropdown-toggle {
+    padding: 0.35rem 0.4rem;
+  }
+  .bookstore-filters {
+    gap: 0.3rem;
+  }
+  .bookstore-filter-btn {
+    font-size: 0.65rem;
+    padding: 0.35rem 0.8rem;
   }
 }
 
@@ -620,6 +658,14 @@ section {
   color: #ffffff;
   margin-bottom: 0.5rem;
   line-height: 1.4;
+}
+
+.book-card-title,
+.book-card-series,
+.book-card-desc,
+.book-card-details {
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .book-card-series {
