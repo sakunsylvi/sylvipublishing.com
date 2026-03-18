@@ -715,6 +715,27 @@ section {
   color: #e8e4df;
   border-color: #e8e4df;
 }
+.book-card-desc {
+  margin-bottom: 1rem;
+}
+
+.book-desc-text {
+  font-size: 0.85rem;
+  color: #888;
+  line-height: 1.7;
+}
+
+.book-desc-toggle {
+  font-size: 0.75rem;
+  color: #666;
+  border-bottom: 1px solid #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.book-desc-toggle:hover {
+  color: #e8e4df;
+}
 </style>
 </head>
 <body>
@@ -866,6 +887,9 @@ section {
         <span class="format-badge">Paperback</span>
         <span class="format-badge">Hardcover</span>
       </div>
+      <div class="book-card-desc">
+        <p class="book-desc-text"><span class="book-desc-short">The Federalist Papers: The Living Republic is an illustrated 250th anniversary edition featuring the complete collection of 85 essays by Alexander Hamilton, James Madison, and John Jay. Originally published to advocate for the ratification of the United States Constitution, these foundational texts remain</span><span class="book-desc-full" style="display:none"> essential reading for understanding American democracy, governance, and the principles of republican government.</span> <a href="#" class="book-desc-toggle">Read more</a></p>
+      </div>
       <div class="edition-tabs">
         <button class="edition-tab active" data-edition="fed-kindle">Kindle</button>
         <button class="edition-tab" data-edition="fed-paperback">Paperback</button>
@@ -876,7 +900,7 @@ section {
           <span>771 pages</span>
           <span>Publisher: Sylvi Publishing Oy</span>
         </div>
-        <a href="https://www.amazon.com/dp/B0GRNJMBBS" target="_blank" rel="noopener noreferrer" class="book-card-link">View on Amazon</a>
+        <a href="https://www.amazon.com/dp/B0GRNJMBBS" target="_blank" rel="noopener noreferrer" class="book-card-link">Buy on Amazon</a>
       </div>
       <div class="edition-panel" id="fed-paperback">
         <div class="book-card-details">
@@ -884,7 +908,7 @@ section {
           <span>ISBN: 979-8250875721</span>
           <span>8.5 x 1.32 x 11 in / 3.27 lbs</span>
         </div>
-        <a href="https://www.amazon.com/dp/B0GS5NXHP6" target="_blank" rel="noopener noreferrer" class="book-card-link">View on Amazon</a>
+        <a href="https://www.amazon.com/dp/B0GS5NXHP6" target="_blank" rel="noopener noreferrer" class="book-card-link">Buy on Amazon</a>
       </div>
       <div class="edition-panel" id="fed-hardcover">
         <div class="book-card-details">
@@ -892,7 +916,7 @@ section {
           <span>ISBN: 979-8250177665</span>
           <span>8.49 x 1.43 x 11.24 in / 3.18 lbs</span>
         </div>
-        <a href="https://www.amazon.com/dp/B0GRH516JR" target="_blank" rel="noopener noreferrer" class="book-card-link">View on Amazon</a>
+        <a href="https://www.amazon.com/dp/B0GRH516JR" target="_blank" rel="noopener noreferrer" class="book-card-link">Buy on Amazon</a>
       </div>
     </div>
 
@@ -908,12 +932,15 @@ section {
         <span class="format-badge">Paperback</span>
         <span class="format-badge">Hardcover</span>
       </div>
+      <div class="book-card-desc">
+        <p class="book-desc-text"><span class="book-desc-short">A beautifully reimagined edition of Frances Hodgson Burnett&rsquo;s beloved classic, featuring stunning new illustrations by Saku Matto. Follow young Mary Lennox as she discovers a hidden garden and transforms not only the neglected space but also the lives of those around her. This timeless tale of</span><span class="book-desc-full" style="display:none"> friendship, healing, and the restorative power of nature is brought to life with fresh artistic vision while preserving the magic of the original story.</span> <a href="#" class="book-desc-toggle">Read more</a></p>
+      </div>
       <div class="book-card-details">
         <span>256 pages</span>
         <span>ISBN: 979-8288753800</span>
         <span>6 x 0.64 x 9 in</span>
       </div>
-      <a href="https://www.amazon.com/dp/B0FF357NNP" target="_blank" rel="noopener noreferrer" class="book-card-link">View on Amazon</a>
+      <a href="https://www.amazon.com/dp/B0FF357NNP" target="_blank" rel="noopener noreferrer" class="book-card-link">Buy on Amazon</a>
     </div>
 
     <!-- Book 3: The Inferno of Love (EN/ES) -->
@@ -926,12 +953,15 @@ section {
       <div class="book-card-formats">
         <span class="format-badge">Paperback</span>
       </div>
+      <div class="book-card-desc">
+        <p class="book-desc-text"><span class="book-desc-short">Master Spanish language and culture through a timeless tale. This dual-language Spanish-English edition of Manuel Fernandez y Gonzalez&rsquo;s 19th-century romantic novel presents the original Spanish text alongside a poetic English translation on every spread. Follow Ataide and Leila&rsquo;s tragic love story set</span><span class="book-desc-full" style="display:none"> against the enchanting backdrop of Moorish Granada, perfect for Spanish learners of all levels.</span> <a href="#" class="book-desc-toggle">Read more</a></p>
+      </div>
       <div class="book-card-details">
         <span>220 pages</span>
         <span>ISBN: 979-8316524600</span>
         <span>5.5 x 0.55 x 8.5 in</span>
       </div>
-      <a href="https://www.amazon.com/dp/B0FB8XNHTN" target="_blank" rel="noopener noreferrer" class="book-card-link">View on Amazon</a>
+      <a href="https://www.amazon.com/dp/B0FB8XNHTN" target="_blank" rel="noopener noreferrer" class="book-card-link">Buy on Amazon</a>
     </div>
 
     <!-- Book 4: Der Inferno der Liebe (DE/ES) -->
@@ -944,12 +974,15 @@ section {
       <div class="book-card-formats">
         <span class="format-badge">Paperback</span>
       </div>
+      <div class="book-card-desc">
+        <p class="book-desc-text"><span class="book-desc-short">Verbessere deine Sprachkenntnisse mit dieser zweisprachigen Spanisch-Deutsch-Ausgabe des romantischen Romans von Manuel Fernandez y Gonzalez aus dem 19. Jahrhundert. Folge der tragischen Liebesgeschichte von Ataide und Leila vor der bezaubernden Kulisse des maurischen Granadas. Perfekt f&uuml;r Spanischlernende aller</span><span class="book-desc-full" style="display:none"> Niveaus, mit dem originalen spanischen Text neben einer sorgf&auml;ltigen deutschen &Uuml;bersetzung.</span> <a href="#" class="book-desc-toggle">Read more</a></p>
+      </div>
       <div class="book-card-details">
         <span>224 pages</span>
         <span>ISBN: 979-8316943838</span>
         <span>5.5 x 0.56 x 8.5 in</span>
       </div>
-      <a href="https://www.amazon.com/dp/B0FDX2FCK4" target="_blank" rel="noopener noreferrer" class="book-card-link">View on Amazon</a>
+      <a href="https://www.amazon.com/dp/B0FDX2FCK4" target="_blank" rel="noopener noreferrer" class="book-card-link">Buy on Amazon</a>
     </div>
 
     <!-- Book 5: The Castle / Das Schloss (EN/DE) -->
@@ -962,12 +995,15 @@ section {
       <div class="book-card-formats">
         <span class="format-badge">Paperback</span>
       </div>
+      <div class="book-card-desc">
+        <p class="book-desc-text"><span class="book-desc-short">A dual-language edition of Franz Kafka&rsquo;s masterpiece for German learners. Follow surveyor K. as he arrives in a snow-laden village, determined to reach the mysterious Castle that dominates the landscape. This bilingual English-German edition presents Kafka&rsquo;s enigmatic prose alongside a meticulous translation,</span><span class="book-desc-full" style="display:none"> offering an immersive way to improve your German through one of literature&rsquo;s greatest works.</span> <a href="#" class="book-desc-toggle">Read more</a></p>
+      </div>
       <div class="book-card-details">
         <span>624 pages</span>
         <span>ISBN: 979-8313445328</span>
         <span>6 x 1.56 x 9 in / 2.27 lbs</span>
       </div>
-      <a href="https://www.amazon.com/dp/B0F149FWBG" target="_blank" rel="noopener noreferrer" class="book-card-link">View on Amazon</a>
+      <a href="https://www.amazon.com/dp/B0F149FWBG" target="_blank" rel="noopener noreferrer" class="book-card-link">Buy on Amazon</a>
     </div>
 
     <!-- Book 6: Suomalaisten alkupera -->
@@ -980,12 +1016,15 @@ section {
       <div class="book-card-formats">
         <span class="format-badge">Paperback</span>
       </div>
+      <div class="book-card-desc">
+        <p class="book-desc-text"><span class="book-desc-short">Fredrik Collinin v&auml;it&ouml;skirja De Origine Fennorum (1764) nyt suomennettuna. T&auml;m&auml; harvinainen historiallinen teos avaa kiehtovan n&auml;kym&auml;n 1700-luvun tieteelliseen pohdintaan suomalaisten alkuper&auml;st&auml;. Collinin rohkea tutkimus haastaa aikansa k&auml;sitykset ja j&auml;ljitt&auml;&auml; suomalaisia aina Israelin kymmenen kadonneen heimon</span><span class="book-desc-full" style="display:none"> vaelluksiin, kietoen yhteen kielitieteen, historian ja muinaismuistojen todisteita.</span> <a href="#" class="book-desc-toggle">Read more</a></p>
+      </div>
       <div class="book-card-details">
         <span>28 pages</span>
         <span>ISBN: 979-8285640899</span>
         <span>6 x 0.07 x 9 in</span>
       </div>
-      <a href="https://www.amazon.com/dp/B0FDS19N8P" target="_blank" rel="noopener noreferrer" class="book-card-link">View on Amazon</a>
+      <a href="https://www.amazon.com/dp/B0FDS19N8P" target="_blank" rel="noopener noreferrer" class="book-card-link">Buy on Amazon</a>
     </div>
 
   </div>
@@ -1108,6 +1147,22 @@ document.querySelectorAll('.edition-tab').forEach(tab => {
     tab.classList.add('active');
     const panel = document.getElementById(tab.dataset.edition);
     if (panel) panel.classList.add('active');
+  });
+});
+
+// Description read more/less toggle
+document.querySelectorAll('.book-desc-toggle').forEach(toggle => {
+  toggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const desc = toggle.closest('.book-desc-text');
+    const full = desc.querySelector('.book-desc-full');
+    if (full.style.display === 'none') {
+      full.style.display = 'inline';
+      toggle.textContent = 'Read less';
+    } else {
+      full.style.display = 'none';
+      toggle.textContent = 'Read more';
+    }
   });
 });
 </script>
