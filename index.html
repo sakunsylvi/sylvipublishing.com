@@ -516,6 +516,204 @@ section {
   .card {
     padding: 2rem;
   }
+  .bookstore-grid {
+    grid-template-columns: 1fr;
+  }
+  .book-card {
+    padding: 1.5rem;
+  }
+  .book-card-cover img {
+    max-width: 140px;
+  }
+}
+
+/* ── BOOKSTORE ── */
+.bookstore {
+  background: #141414;
+}
+
+.bookstore-heading {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.bookstore-filters {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.bookstore-filter-btn {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.5rem 1.25rem;
+  border: 1px solid #333;
+  background: transparent;
+  color: #777;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.bookstore-filter-btn:hover {
+  border-color: #555;
+  color: #bbb;
+}
+
+.bookstore-filter-btn.active {
+  background: #222;
+  border-color: #555;
+  color: #e8e4df;
+}
+
+.bookstore-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .bookstore-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.book-card {
+  border: 1px solid #222;
+  padding: 2rem;
+  background: #0c0c0c;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.book-card:hover {
+  border-color: #444;
+  transform: translateY(-4px);
+}
+
+.book-card-cover {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.book-card-cover img {
+  max-width: 180px;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  border: 1px solid #1a1a1a;
+}
+
+.book-card-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.book-card-series {
+  font-size: 0.8rem;
+  color: #666;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.book-card-formats {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.format-badge {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid #333;
+  color: #999;
+  background: #111;
+}
+
+.edition-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #222;
+}
+
+.edition-tab {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: transparent;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.edition-tab:hover {
+  color: #999;
+}
+
+.edition-tab.active {
+  color: #e8e4df;
+  border-bottom-color: #555;
+}
+
+.edition-panel {
+  display: none;
+}
+
+.edition-panel.active {
+  display: block;
+}
+
+.book-card-details {
+  font-size: 0.8rem;
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.book-card-details span {
+  display: block;
+}
+
+.book-card-link {
+  display: inline-block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #888;
+  border-bottom: 1px solid #333;
+  padding-bottom: 2px;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.book-card-link:hover {
+  color: #e8e4df;
+  border-color: #e8e4df;
 }
 </style>
 </head>
@@ -540,6 +738,7 @@ section {
     <li><a href="#about">About</a></li>
     <li><a href="#method">Method</a></li>
     <li><a href="#services">Services</a></li>
+    <li><a href="#bookstore">Bookstore</a></li>
     <li><a href="#join">Contact</a></li>
   </ul>
 </nav>
@@ -641,6 +840,157 @@ section {
   </div>
 </section>
 
+<!-- BOOKSTORE -->
+<section class="bookstore" id="bookstore">
+  <p class="section-label reveal-on-scroll">Our Books</p>
+  <h2 class="bookstore-heading reveal-on-scroll">Bookstore</h2>
+
+  <div class="bookstore-filters reveal-on-scroll">
+    <button class="bookstore-filter-btn active" data-filter="all">All</button>
+    <button class="bookstore-filter-btn" data-filter="kindle">Kindle</button>
+    <button class="bookstore-filter-btn" data-filter="paperback">Paperback</button>
+    <button class="bookstore-filter-btn" data-filter="hardcover">Hardcover</button>
+  </div>
+
+  <div class="bookstore-grid">
+
+    <!-- Book 1: The Federalist Papers -->
+    <div class="book-card reveal-on-scroll" data-formats="kindle paperback hardcover">
+      <div class="book-card-cover">
+        <img src="https://m.media-amazon.com/images/I/91QoLQkc5NL._SY522_.jpg" alt="The Federalist Papers: The Living Republic (250th Anniversary Edition) book cover">
+      </div>
+      <h3 class="book-card-title">The Federalist Papers: The Living Republic</h3>
+      <p class="book-card-series">250th Anniversary Edition</p>
+      <div class="book-card-formats">
+        <span class="format-badge">Kindle</span>
+        <span class="format-badge">Paperback</span>
+        <span class="format-badge">Hardcover</span>
+      </div>
+      <div class="edition-tabs">
+        <button class="edition-tab active" data-edition="fed-kindle">Kindle</button>
+        <button class="edition-tab" data-edition="fed-paperback">Paperback</button>
+        <button class="edition-tab" data-edition="fed-hardcover">Hardcover</button>
+      </div>
+      <div class="edition-panel active" id="fed-kindle">
+        <div class="book-card-details">
+          <span>771 pages</span>
+          <span>Publisher: Sylvi Publishing Oy</span>
+        </div>
+        <a href="https://www.amazon.com/dp/B0GRNJMBBS" target="_blank" rel="noopener noreferrer" class="book-card-link">View on Amazon</a>
+      </div>
+      <div class="edition-panel" id="fed-paperback">
+        <div class="book-card-details">
+          <span>528 pages</span>
+          <span>ISBN: 979-8250875721</span>
+          <span>8.5 x 1.32 x 11 in / 3.27 lbs</span>
+        </div>
+        <a href="https://www.amazon.com/dp/B0GS5NXHP6" target="_blank" rel="noopener noreferrer" class="book-card-link">View on Amazon</a>
+      </div>
+      <div class="edition-panel" id="fed-hardcover">
+        <div class="book-card-details">
+          <span>528 pages</span>
+          <span>ISBN: 979-8250177665</span>
+          <span>8.49 x 1.43 x 11.24 in / 3.18 lbs</span>
+        </div>
+        <a href="https://www.amazon.com/dp/B0GRH516JR" target="_blank" rel="noopener noreferrer" class="book-card-link">View on Amazon</a>
+      </div>
+    </div>
+
+    <!-- Book 2: The Secret Garden -->
+    <div class="book-card reveal-on-scroll" data-formats="kindle paperback hardcover">
+      <div class="book-card-cover">
+        <img src="https://m.media-amazon.com/images/I/71wTuSibeZL._SY522_.jpg" alt="The Secret Garden: A Timeless Classic with New Illustrations book cover">
+      </div>
+      <h3 class="book-card-title">The Secret Garden</h3>
+      <p class="book-card-series">A Timeless Classic with New Illustrations</p>
+      <div class="book-card-formats">
+        <span class="format-badge">Kindle</span>
+        <span class="format-badge">Paperback</span>
+        <span class="format-badge">Hardcover</span>
+      </div>
+      <div class="book-card-details">
+        <span>256 pages</span>
+        <span>ISBN: 979-8288753800</span>
+        <span>6 x 0.64 x 9 in</span>
+      </div>
+      <a href="https://www.amazon.com/dp/B0FF357NNP" target="_blank" rel="noopener noreferrer" class="book-card-link">View on Amazon</a>
+    </div>
+
+    <!-- Book 3: The Inferno of Love (EN/ES) -->
+    <div class="book-card reveal-on-scroll" data-formats="paperback">
+      <div class="book-card-cover">
+        <img src="https://m.media-amazon.com/images/I/71wXEHQViYL._SY522_.jpg" alt="The Inferno of Love / El infierno del amor English-Spanish dual-language book cover">
+      </div>
+      <h3 class="book-card-title">The Inferno of Love / El infierno del amor</h3>
+      <p class="book-card-series">esque Learning Languages for English Speakers</p>
+      <div class="book-card-formats">
+        <span class="format-badge">Paperback</span>
+      </div>
+      <div class="book-card-details">
+        <span>220 pages</span>
+        <span>ISBN: 979-8316524600</span>
+        <span>5.5 x 0.55 x 8.5 in</span>
+      </div>
+      <a href="https://www.amazon.com/dp/B0FB8XNHTN" target="_blank" rel="noopener noreferrer" class="book-card-link">View on Amazon</a>
+    </div>
+
+    <!-- Book 4: Der Inferno der Liebe (DE/ES) -->
+    <div class="book-card reveal-on-scroll" data-formats="paperback">
+      <div class="book-card-cover">
+        <img src="https://m.media-amazon.com/images/I/71u81JNg1bL._SY522_.jpg" alt="Der Inferno der Liebe / El infierno del amor German-Spanish dual-language book cover">
+      </div>
+      <h3 class="book-card-title">Der Inferno der Liebe / El infierno del amor</h3>
+      <p class="book-card-series">esque Sprachenlernen fur Deutschsprachige</p>
+      <div class="book-card-formats">
+        <span class="format-badge">Paperback</span>
+      </div>
+      <div class="book-card-details">
+        <span>224 pages</span>
+        <span>ISBN: 979-8316943838</span>
+        <span>5.5 x 0.56 x 8.5 in</span>
+      </div>
+      <a href="https://www.amazon.com/dp/B0FDX2FCK4" target="_blank" rel="noopener noreferrer" class="book-card-link">View on Amazon</a>
+    </div>
+
+    <!-- Book 5: The Castle / Das Schloss (EN/DE) -->
+    <div class="book-card reveal-on-scroll" data-formats="paperback">
+      <div class="book-card-cover">
+        <img src="https://m.media-amazon.com/images/I/61LaX0Vm+9L._SY522_.jpg" alt="The Castle / Das Schloss English-German dual-language Kafka book cover">
+      </div>
+      <h3 class="book-card-title">The Castle / Das Schloss</h3>
+      <p class="book-card-series">esque Learning Languages for English Speakers</p>
+      <div class="book-card-formats">
+        <span class="format-badge">Paperback</span>
+      </div>
+      <div class="book-card-details">
+        <span>624 pages</span>
+        <span>ISBN: 979-8313445328</span>
+        <span>6 x 1.56 x 9 in / 2.27 lbs</span>
+      </div>
+      <a href="https://www.amazon.com/dp/B0F149FWBG" target="_blank" rel="noopener noreferrer" class="book-card-link">View on Amazon</a>
+    </div>
+
+    <!-- Book 6: Suomalaisten alkupera -->
+    <div class="book-card reveal-on-scroll" data-formats="paperback">
+      <div class="book-card-cover">
+        <img src="https://m.media-amazon.com/images/I/81TkIj517-L._SY522_.jpg" alt="Suomalaisten alkupera: De Origine Fennorum Finnish edition book cover">
+      </div>
+      <h3 class="book-card-title">Suomalaisten alkuper&auml;: De Origine Fennorum</h3>
+      <p class="book-card-series">Finnish Edition</p>
+      <div class="book-card-formats">
+        <span class="format-badge">Paperback</span>
+      </div>
+      <div class="book-card-details">
+        <span>28 pages</span>
+        <span>ISBN: 979-8285640899</span>
+        <span>6 x 0.07 x 9 in</span>
+      </div>
+      <a href="https://www.amazon.com/dp/B0FDS19N8P" target="_blank" rel="noopener noreferrer" class="book-card-link">View on Amazon</a>
+    </div>
+
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
@@ -730,6 +1080,36 @@ if (methodSection && methodBgImg) {
   }, { passive: true });
   updateParallax();
 }
+
+// Bookstore filter
+const filterBtns = document.querySelectorAll('.bookstore-filter-btn');
+const bookCards = document.querySelectorAll('.book-card');
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    bookCards.forEach(card => {
+      if (filter === 'all' || card.dataset.formats.includes(filter)) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+
+// Edition tab switching
+document.querySelectorAll('.edition-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const card = tab.closest('.book-card');
+    card.querySelectorAll('.edition-tab').forEach(t => t.classList.remove('active'));
+    card.querySelectorAll('.edition-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    const panel = document.getElementById(tab.dataset.edition);
+    if (panel) panel.classList.add('active');
+  });
+});
 </script>
 </body>
 </html>
