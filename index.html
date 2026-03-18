@@ -698,7 +698,12 @@ section {
   display: block;
 }
 
-.book-card-link {
+.amazon-btn-group {
+  display: inline-flex;
+  position: relative;
+}
+
+.amazon-btn {
   display: inline-block;
   font-family: 'Outfit', sans-serif;
   font-size: 0.75rem;
@@ -706,14 +711,67 @@ section {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #888;
-  border-bottom: 1px solid #333;
-  padding-bottom: 2px;
+  border: 1px solid #333;
+  padding: 0.4rem 0.8rem;
+  transition: color 0.3s ease, border-color 0.3s ease;
+  background: transparent;
+}
+
+.amazon-btn:hover {
+  color: #e8e4df;
+  border-color: #555;
+}
+
+.amazon-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  color: #666;
+  border: 1px solid #333;
+  border-left: none;
+  padding: 0.4rem 0.5rem;
+  background: transparent;
+  cursor: pointer;
   transition: color 0.3s ease, border-color 0.3s ease;
 }
 
-.book-card-link:hover {
+.amazon-dropdown-toggle:hover {
   color: #e8e4df;
-  border-color: #e8e4df;
+  border-color: #555;
+}
+
+.amazon-dropdown {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  min-width: 180px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  margin-bottom: 4px;
+  z-index: 100;
+}
+
+.amazon-dropdown.open {
+  display: block;
+}
+
+.amazon-dropdown a {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: #888;
+  padding: 0.45rem 0.8rem;
+  transition: background 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+.amazon-dropdown a:hover {
+  background: #252525;
+  color: #e8e4df;
 }
 .book-card-desc {
   margin-bottom: 1rem;
@@ -900,7 +958,20 @@ section {
           <span>771 pages</span>
           <span>Publisher: Sylvi Publishing Oy</span>
         </div>
-        <a href="https://www.amazon.com/dp/B0GRNJMBBS" target="_blank" rel="noopener noreferrer" class="book-card-link">Buy on Amazon</a>
+        <div class="amazon-btn-group">
+          <a href="https://www.amazon.com/dp/B0GRNJMBBS" target="_blank" rel="noopener noreferrer" class="amazon-btn">Buy on Amazon</a><button class="amazon-dropdown-toggle" aria-label="Choose Amazon store">&#9662;</button>
+          <div class="amazon-dropdown">
+            <a href="https://www.amazon.com/dp/B0GRNJMBBS" target="_blank" rel="noopener noreferrer">Amazon.com</a>
+            <a href="https://www.amazon.co.uk/dp/B0GRNJMBBS" target="_blank" rel="noopener noreferrer">Amazon.co.uk</a>
+            <a href="https://www.amazon.de/dp/B0GRNJMBBS" target="_blank" rel="noopener noreferrer">Amazon.de</a>
+            <a href="https://www.amazon.fr/dp/B0GRNJMBBS" target="_blank" rel="noopener noreferrer">Amazon.fr</a>
+            <a href="https://www.amazon.es/dp/B0GRNJMBBS" target="_blank" rel="noopener noreferrer">Amazon.es</a>
+            <a href="https://www.amazon.it/dp/B0GRNJMBBS" target="_blank" rel="noopener noreferrer">Amazon.it</a>
+            <a href="https://www.amazon.co.jp/dp/B0GRNJMBBS" target="_blank" rel="noopener noreferrer">Amazon.co.jp</a>
+            <a href="https://www.amazon.ca/dp/B0GRNJMBBS" target="_blank" rel="noopener noreferrer">Amazon.ca</a>
+            <a href="https://www.amazon.com.au/dp/B0GRNJMBBS" target="_blank" rel="noopener noreferrer">Amazon.com.au</a>
+          </div>
+        </div>
       </div>
       <div class="edition-panel" id="fed-paperback">
         <div class="book-card-details">
@@ -908,7 +979,20 @@ section {
           <span>ISBN: 979-8250875721</span>
           <span>8.5 x 1.32 x 11 in / 3.27 lbs</span>
         </div>
-        <a href="https://www.amazon.com/dp/B0GS5NXHP6" target="_blank" rel="noopener noreferrer" class="book-card-link">Buy on Amazon</a>
+        <div class="amazon-btn-group">
+          <a href="https://www.amazon.com/dp/B0GS5NXHP6" target="_blank" rel="noopener noreferrer" class="amazon-btn">Buy on Amazon</a><button class="amazon-dropdown-toggle" aria-label="Choose Amazon store">&#9662;</button>
+          <div class="amazon-dropdown">
+            <a href="https://www.amazon.com/dp/B0GS5NXHP6" target="_blank" rel="noopener noreferrer">Amazon.com</a>
+            <a href="https://www.amazon.co.uk/dp/B0GS5NXHP6" target="_blank" rel="noopener noreferrer">Amazon.co.uk</a>
+            <a href="https://www.amazon.de/dp/B0GS5NXHP6" target="_blank" rel="noopener noreferrer">Amazon.de</a>
+            <a href="https://www.amazon.fr/dp/B0GS5NXHP6" target="_blank" rel="noopener noreferrer">Amazon.fr</a>
+            <a href="https://www.amazon.es/dp/B0GS5NXHP6" target="_blank" rel="noopener noreferrer">Amazon.es</a>
+            <a href="https://www.amazon.it/dp/B0GS5NXHP6" target="_blank" rel="noopener noreferrer">Amazon.it</a>
+            <a href="https://www.amazon.co.jp/dp/B0GS5NXHP6" target="_blank" rel="noopener noreferrer">Amazon.co.jp</a>
+            <a href="https://www.amazon.ca/dp/B0GS5NXHP6" target="_blank" rel="noopener noreferrer">Amazon.ca</a>
+            <a href="https://www.amazon.com.au/dp/B0GS5NXHP6" target="_blank" rel="noopener noreferrer">Amazon.com.au</a>
+          </div>
+        </div>
       </div>
       <div class="edition-panel" id="fed-hardcover">
         <div class="book-card-details">
@@ -916,7 +1000,20 @@ section {
           <span>ISBN: 979-8250177665</span>
           <span>8.49 x 1.43 x 11.24 in / 3.18 lbs</span>
         </div>
-        <a href="https://www.amazon.com/dp/B0GRH516JR" target="_blank" rel="noopener noreferrer" class="book-card-link">Buy on Amazon</a>
+        <div class="amazon-btn-group">
+          <a href="https://www.amazon.com/dp/B0GRH516JR" target="_blank" rel="noopener noreferrer" class="amazon-btn">Buy on Amazon</a><button class="amazon-dropdown-toggle" aria-label="Choose Amazon store">&#9662;</button>
+          <div class="amazon-dropdown">
+            <a href="https://www.amazon.com/dp/B0GRH516JR" target="_blank" rel="noopener noreferrer">Amazon.com</a>
+            <a href="https://www.amazon.co.uk/dp/B0GRH516JR" target="_blank" rel="noopener noreferrer">Amazon.co.uk</a>
+            <a href="https://www.amazon.de/dp/B0GRH516JR" target="_blank" rel="noopener noreferrer">Amazon.de</a>
+            <a href="https://www.amazon.fr/dp/B0GRH516JR" target="_blank" rel="noopener noreferrer">Amazon.fr</a>
+            <a href="https://www.amazon.es/dp/B0GRH516JR" target="_blank" rel="noopener noreferrer">Amazon.es</a>
+            <a href="https://www.amazon.it/dp/B0GRH516JR" target="_blank" rel="noopener noreferrer">Amazon.it</a>
+            <a href="https://www.amazon.co.jp/dp/B0GRH516JR" target="_blank" rel="noopener noreferrer">Amazon.co.jp</a>
+            <a href="https://www.amazon.ca/dp/B0GRH516JR" target="_blank" rel="noopener noreferrer">Amazon.ca</a>
+            <a href="https://www.amazon.com.au/dp/B0GRH516JR" target="_blank" rel="noopener noreferrer">Amazon.com.au</a>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -940,7 +1037,20 @@ section {
         <span>ISBN: 979-8288753800</span>
         <span>6 x 0.64 x 9 in</span>
       </div>
-      <a href="https://www.amazon.com/dp/B0FF357NNP" target="_blank" rel="noopener noreferrer" class="book-card-link">Buy on Amazon</a>
+      <div class="amazon-btn-group">
+        <a href="https://www.amazon.com/dp/B0FF357NNP" target="_blank" rel="noopener noreferrer" class="amazon-btn">Buy on Amazon</a><button class="amazon-dropdown-toggle" aria-label="Choose Amazon store">&#9662;</button>
+        <div class="amazon-dropdown">
+          <a href="https://www.amazon.com/dp/B0FF357NNP" target="_blank" rel="noopener noreferrer">Amazon.com</a>
+          <a href="https://www.amazon.co.uk/dp/B0FF357NNP" target="_blank" rel="noopener noreferrer">Amazon.co.uk</a>
+          <a href="https://www.amazon.de/dp/B0FF357NNP" target="_blank" rel="noopener noreferrer">Amazon.de</a>
+          <a href="https://www.amazon.fr/dp/B0FF357NNP" target="_blank" rel="noopener noreferrer">Amazon.fr</a>
+          <a href="https://www.amazon.es/dp/B0FF357NNP" target="_blank" rel="noopener noreferrer">Amazon.es</a>
+          <a href="https://www.amazon.it/dp/B0FF357NNP" target="_blank" rel="noopener noreferrer">Amazon.it</a>
+          <a href="https://www.amazon.co.jp/dp/B0FF357NNP" target="_blank" rel="noopener noreferrer">Amazon.co.jp</a>
+          <a href="https://www.amazon.ca/dp/B0FF357NNP" target="_blank" rel="noopener noreferrer">Amazon.ca</a>
+          <a href="https://www.amazon.com.au/dp/B0FF357NNP" target="_blank" rel="noopener noreferrer">Amazon.com.au</a>
+        </div>
+      </div>
     </div>
 
     <!-- Book 3: The Inferno of Love (EN/ES) -->
@@ -961,7 +1071,20 @@ section {
         <span>ISBN: 979-8316524600</span>
         <span>5.5 x 0.55 x 8.5 in</span>
       </div>
-      <a href="https://www.amazon.com/dp/B0FB8XNHTN" target="_blank" rel="noopener noreferrer" class="book-card-link">Buy on Amazon</a>
+      <div class="amazon-btn-group">
+        <a href="https://www.amazon.com/dp/B0FB8XNHTN" target="_blank" rel="noopener noreferrer" class="amazon-btn">Buy on Amazon</a><button class="amazon-dropdown-toggle" aria-label="Choose Amazon store">&#9662;</button>
+        <div class="amazon-dropdown">
+          <a href="https://www.amazon.com/dp/B0FB8XNHTN" target="_blank" rel="noopener noreferrer">Amazon.com</a>
+          <a href="https://www.amazon.co.uk/dp/B0FB8XNHTN" target="_blank" rel="noopener noreferrer">Amazon.co.uk</a>
+          <a href="https://www.amazon.de/dp/B0FB8XNHTN" target="_blank" rel="noopener noreferrer">Amazon.de</a>
+          <a href="https://www.amazon.fr/dp/B0FB8XNHTN" target="_blank" rel="noopener noreferrer">Amazon.fr</a>
+          <a href="https://www.amazon.es/dp/B0FB8XNHTN" target="_blank" rel="noopener noreferrer">Amazon.es</a>
+          <a href="https://www.amazon.it/dp/B0FB8XNHTN" target="_blank" rel="noopener noreferrer">Amazon.it</a>
+          <a href="https://www.amazon.co.jp/dp/B0FB8XNHTN" target="_blank" rel="noopener noreferrer">Amazon.co.jp</a>
+          <a href="https://www.amazon.ca/dp/B0FB8XNHTN" target="_blank" rel="noopener noreferrer">Amazon.ca</a>
+          <a href="https://www.amazon.com.au/dp/B0FB8XNHTN" target="_blank" rel="noopener noreferrer">Amazon.com.au</a>
+        </div>
+      </div>
     </div>
 
     <!-- Book 4: Der Inferno der Liebe (DE/ES) -->
@@ -982,7 +1105,20 @@ section {
         <span>ISBN: 979-8316943838</span>
         <span>5.5 x 0.56 x 8.5 in</span>
       </div>
-      <a href="https://www.amazon.com/dp/B0FDX2FCK4" target="_blank" rel="noopener noreferrer" class="book-card-link">Buy on Amazon</a>
+      <div class="amazon-btn-group">
+        <a href="https://www.amazon.com/dp/B0FDX2FCK4" target="_blank" rel="noopener noreferrer" class="amazon-btn">Buy on Amazon</a><button class="amazon-dropdown-toggle" aria-label="Choose Amazon store">&#9662;</button>
+        <div class="amazon-dropdown">
+          <a href="https://www.amazon.com/dp/B0FDX2FCK4" target="_blank" rel="noopener noreferrer">Amazon.com</a>
+          <a href="https://www.amazon.co.uk/dp/B0FDX2FCK4" target="_blank" rel="noopener noreferrer">Amazon.co.uk</a>
+          <a href="https://www.amazon.de/dp/B0FDX2FCK4" target="_blank" rel="noopener noreferrer">Amazon.de</a>
+          <a href="https://www.amazon.fr/dp/B0FDX2FCK4" target="_blank" rel="noopener noreferrer">Amazon.fr</a>
+          <a href="https://www.amazon.es/dp/B0FDX2FCK4" target="_blank" rel="noopener noreferrer">Amazon.es</a>
+          <a href="https://www.amazon.it/dp/B0FDX2FCK4" target="_blank" rel="noopener noreferrer">Amazon.it</a>
+          <a href="https://www.amazon.co.jp/dp/B0FDX2FCK4" target="_blank" rel="noopener noreferrer">Amazon.co.jp</a>
+          <a href="https://www.amazon.ca/dp/B0FDX2FCK4" target="_blank" rel="noopener noreferrer">Amazon.ca</a>
+          <a href="https://www.amazon.com.au/dp/B0FDX2FCK4" target="_blank" rel="noopener noreferrer">Amazon.com.au</a>
+        </div>
+      </div>
     </div>
 
     <!-- Book 5: The Castle / Das Schloss (EN/DE) -->
@@ -1003,7 +1139,20 @@ section {
         <span>ISBN: 979-8313445328</span>
         <span>6 x 1.56 x 9 in / 2.27 lbs</span>
       </div>
-      <a href="https://www.amazon.com/dp/B0F149FWBG" target="_blank" rel="noopener noreferrer" class="book-card-link">Buy on Amazon</a>
+      <div class="amazon-btn-group">
+        <a href="https://www.amazon.com/dp/B0F149FWBG" target="_blank" rel="noopener noreferrer" class="amazon-btn">Buy on Amazon</a><button class="amazon-dropdown-toggle" aria-label="Choose Amazon store">&#9662;</button>
+        <div class="amazon-dropdown">
+          <a href="https://www.amazon.com/dp/B0F149FWBG" target="_blank" rel="noopener noreferrer">Amazon.com</a>
+          <a href="https://www.amazon.co.uk/dp/B0F149FWBG" target="_blank" rel="noopener noreferrer">Amazon.co.uk</a>
+          <a href="https://www.amazon.de/dp/B0F149FWBG" target="_blank" rel="noopener noreferrer">Amazon.de</a>
+          <a href="https://www.amazon.fr/dp/B0F149FWBG" target="_blank" rel="noopener noreferrer">Amazon.fr</a>
+          <a href="https://www.amazon.es/dp/B0F149FWBG" target="_blank" rel="noopener noreferrer">Amazon.es</a>
+          <a href="https://www.amazon.it/dp/B0F149FWBG" target="_blank" rel="noopener noreferrer">Amazon.it</a>
+          <a href="https://www.amazon.co.jp/dp/B0F149FWBG" target="_blank" rel="noopener noreferrer">Amazon.co.jp</a>
+          <a href="https://www.amazon.ca/dp/B0F149FWBG" target="_blank" rel="noopener noreferrer">Amazon.ca</a>
+          <a href="https://www.amazon.com.au/dp/B0F149FWBG" target="_blank" rel="noopener noreferrer">Amazon.com.au</a>
+        </div>
+      </div>
     </div>
 
     <!-- Book 6: Suomalaisten alkupera -->
@@ -1024,7 +1173,20 @@ section {
         <span>ISBN: 979-8285640899</span>
         <span>6 x 0.07 x 9 in</span>
       </div>
-      <a href="https://www.amazon.com/dp/B0FDS19N8P" target="_blank" rel="noopener noreferrer" class="book-card-link">Buy on Amazon</a>
+      <div class="amazon-btn-group">
+        <a href="https://www.amazon.com/dp/B0FDS19N8P" target="_blank" rel="noopener noreferrer" class="amazon-btn">Buy on Amazon</a><button class="amazon-dropdown-toggle" aria-label="Choose Amazon store">&#9662;</button>
+        <div class="amazon-dropdown">
+          <a href="https://www.amazon.com/dp/B0FDS19N8P" target="_blank" rel="noopener noreferrer">Amazon.com</a>
+          <a href="https://www.amazon.co.uk/dp/B0FDS19N8P" target="_blank" rel="noopener noreferrer">Amazon.co.uk</a>
+          <a href="https://www.amazon.de/dp/B0FDS19N8P" target="_blank" rel="noopener noreferrer">Amazon.de</a>
+          <a href="https://www.amazon.fr/dp/B0FDS19N8P" target="_blank" rel="noopener noreferrer">Amazon.fr</a>
+          <a href="https://www.amazon.es/dp/B0FDS19N8P" target="_blank" rel="noopener noreferrer">Amazon.es</a>
+          <a href="https://www.amazon.it/dp/B0FDS19N8P" target="_blank" rel="noopener noreferrer">Amazon.it</a>
+          <a href="https://www.amazon.co.jp/dp/B0FDS19N8P" target="_blank" rel="noopener noreferrer">Amazon.co.jp</a>
+          <a href="https://www.amazon.ca/dp/B0FDS19N8P" target="_blank" rel="noopener noreferrer">Amazon.ca</a>
+          <a href="https://www.amazon.com.au/dp/B0FDS19N8P" target="_blank" rel="noopener noreferrer">Amazon.com.au</a>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -1164,6 +1326,21 @@ document.querySelectorAll('.book-desc-toggle').forEach(toggle => {
       toggle.textContent = 'Read more';
     }
   });
+});
+
+// Amazon store dropdown toggle
+document.querySelectorAll('.amazon-dropdown-toggle').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const dropdown = btn.nextElementSibling;
+    const wasOpen = dropdown.classList.contains('open');
+    document.querySelectorAll('.amazon-dropdown.open').forEach(d => d.classList.remove('open'));
+    if (!wasOpen) dropdown.classList.add('open');
+  });
+});
+
+document.addEventListener('click', () => {
+  document.querySelectorAll('.amazon-dropdown.open').forEach(d => d.classList.remove('open'));
 });
 </script>
 </body>
